@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import utilities.Excel;
+
 public class LoginDDT {
 	WebDriver driver;
 	
@@ -26,14 +28,12 @@ public class LoginDDT {
 //		String pageTitle = driver.getTitle();
 //		System.out.println("PAGE TITLE: " + pageTitle);
 		 
-
 	}
 	
 	@BeforeMethod
 	public void setUp() {
 		driver = utilities.DriverFactory.open("Firefox");
 		driver.get("http://sdettraining.com/trguitransactions/AccountManagement.aspx");
-
 	}
 	
 	@AfterMethod
@@ -43,6 +43,6 @@ public class LoginDDT {
 	
 	@DataProvider
 	public String[][] getData() {
-		return utilities.Excel.get("/Users/smyung/Documents/JavaProject/logIn.xls");
+		return Excel.get("/Users/smyung/Documents/JavaProject/logIn.xls");
 	}
 }

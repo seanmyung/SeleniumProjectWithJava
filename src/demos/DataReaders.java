@@ -2,6 +2,8 @@ package demos;
 
 import java.util.List;
 
+import utilities.Excel;
+
 public class DataReaders {
 
 	public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class DataReaders {
 	public static void readXLS() {
 		
 		String filename = "/Users/smyung/Documents/JavaProject/logIn.xls";
-		String[][] data = utilities.Excel.get(filename);
+		String[][] data = Excel.get(filename);
 		for (String[] record : data) {
 			System.out.println("\nNEW RECORD");
 			System.out.println(record[0]);

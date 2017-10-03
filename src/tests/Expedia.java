@@ -44,7 +44,7 @@ public class Expedia {
 		driver.findElement(By.cssSelector("input[name='star'][id='" + starRating +"']")).click();
 		
 		// 3. Analyze the results and make our selection 
-		TimeUnit.SECONDS.sleep(3); //Test fails without time delay. 
+		TimeUnit.SECONDS.sleep(5); //Test fails without time delay. 
 		driver.findElement(By.xpath("//*[@id=\"resultsContainer\"]/section/article[" +searchResult + "]/div[2]/div/a")).click();
 		
 		// Switch the window to the pop
@@ -59,10 +59,13 @@ public class Expedia {
 		
 		
 		// 4. Book reservation 
-		driver.findElement(By.xpath("//*[@id='rooms-and-rates']/div/article/table/tbody[1]/tr[1]/td[5]/form/div[1]/button")).click();
+		driver.findElement(By.xpath("//*[@id='rooms-and-rates']/div/article/table/tbody[1]/tr[1]/td[5]/div/div[1]/button")).click();
 		
-		String hotelPrice = driver.findElement(By.cssSelector("span[class='summary-total amount-value']")).getText();
+		driver.findElement(By.id("pay-later-button")).click();
+		
+		String hotelPrice = driver.findElement(By.cssSelector("span[class='amount-value']")).getText();
 		System.out.println("PRICE: " + hotelPrice);
+		
 		
 		// 5. Fill out contact / billing 
 		
